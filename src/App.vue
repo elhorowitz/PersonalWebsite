@@ -23,6 +23,7 @@ export default {
   --theme-red: #BE3400;
   --theme-yellow: #CDB739;
   --theme-white: #FAF5D3;
+  --theme-white-transparent: rgba(250, 245, 211, 0.4);
 }
 
 html {
