@@ -5,7 +5,12 @@
       v-bind:key="link.id"
     >
       <a class="link" v-bind:href="link.address" target="_blank">
-        <div class="icon"></div>
+        <div class="icon">
+          <GithubIcon v-if="link.id === 'github'" />
+          <LinkedInIcon v-if="link.id === 'linkedin'" />
+          <ResumeIcon v-if="link.id === 'resume'" />
+          <TwitterIcon v-if="link.id === 'twitter'" />
+        </div>
         <span class="name">{{ link.name }}</span>
       </a>
     </li>
@@ -13,30 +18,41 @@
 </template>
 
 <script>
+import GithubIcon from './icons/github.vue';
+import LinkedInIcon from './icons/linkedin.vue';
+import ResumeIcon from './icons/resume.vue';
+import TwitterIcon from './icons/twitter.vue';
+
 export default {
   name: 'Contact',
+  components: {
+    GithubIcon,
+    LinkedInIcon,
+    ResumeIcon,
+    TwitterIcon
+  },
   data () {
     return {
       links: [
         {
           address: 'https://github.com/elhorowitz/',
           id: 'github',
-          name: 'Github',
+          name: 'Github'
         },
         {
           address: 'https://www.linkedin.com/in/ericalhorowitz/',
           id: 'linkedin',
-          name: 'LinkedIn',
+          name: 'LinkedIn'
         },
         {
           address: '',
           id: 'resume',
-          name: 'Resume',
+          name: 'Resume'
         },
         {
           address: 'https://twitter.com/ElHorah',
           id: 'twitter',
-          name: 'Twitter',
+          name: 'Twitter'
         },
       ]
     }
@@ -63,10 +79,14 @@ export default {
 .icon {
   border-radius: 50%;
   border: 0.25rem solid var(--theme-white);
-  height: 4rem;
+  display: flex;
+  padding: 1rem;
   position: relative;
   transition: border ease-in 0.2s;
-  width: 4rem;
+}
+.icon svg {
+  height: 2rem;
+  width: 2rem;
 }
 .icon::after {
   border-radius: 50%;
