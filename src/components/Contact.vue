@@ -17,7 +17,6 @@
           <div class="icon">
             <GithubIcon v-if="link.id === 'github'" />
             <LinkedInIcon v-if="link.id === 'linkedin'" />
-            <ResumeIcon v-if="link.id === 'resume'" />
             <TwitterIcon v-if="link.id === 'twitter'" />
           </div>
           <span class="name">{{ link.name }}</span>
@@ -30,7 +29,6 @@
 <script>
 import GithubIcon from './icons/github.vue';
 import LinkedInIcon from './icons/linkedin.vue';
-import ResumeIcon from './icons/resume.vue';
 import TwitterIcon from './icons/twitter.vue';
 
 export default {
@@ -38,7 +36,6 @@ export default {
   components: {
     GithubIcon,
     LinkedInIcon,
-    ResumeIcon,
     TwitterIcon
   },
   data () {
@@ -54,11 +51,6 @@ export default {
           address: 'https://www.linkedin.com/in/ericalhorowitz/',
           id: 'linkedin',
           name: 'LinkedIn'
-        },
-        {
-          address: '',
-          id: 'resume',
-          name: 'Resume'
         },
         {
           address: 'https://twitter.com/ElHorah',
