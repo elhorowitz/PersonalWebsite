@@ -39,13 +39,11 @@ export default {
   align-items: center;
   background: var(--theme-green-dark);
   border: 1rem solid var(--theme-white-transparent);
-  bottom: 0;
   display: flex;
+  height: 100%;
   justify-content: center;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
+  position: relative;
+  width: 100%;
 }
 .landing::before {
   border: 0.25rem solid var(--theme-white);
@@ -55,5 +53,11 @@ export default {
   position: absolute;
   right: 0.5rem;
   top: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .landing {
+    padding: 1.75rem;
+  } 
 }
 </style>

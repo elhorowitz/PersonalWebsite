@@ -81,9 +81,10 @@ export default {
 }
 .links {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   list-style: none;
-  margin: 2rem 0;
+  margin: 2rem 0 0;
   margin-left: -1rem;
   padding: 0;
   width: 100%;
@@ -93,7 +94,7 @@ export default {
   color: var(--theme-white);
   display: flex;
   flex-direction: column;
-  margin: 0 1rem;
+  margin: 0 1rem 2rem;
   text-decoration: none;
 }
 .icon {
@@ -143,5 +144,11 @@ export default {
 .link:focus .name,
 .link:hover .name {
   font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  .links {
+    margin-left: 0;
+  }
 }
 </style>

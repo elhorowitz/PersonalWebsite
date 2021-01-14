@@ -35,4 +35,10 @@ export default {
 .active #rightarm {
   transform: rotate(182deg);
 }
+
+@media screen and (max-width: 768px) {
+  .cartoon {
+    display: none;
+  }
+}
 </style>

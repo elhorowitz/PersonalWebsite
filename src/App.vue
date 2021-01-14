@@ -23,11 +23,25 @@ export default {
   --theme-white-transparent: rgba(250, 245, 211, 0.4);
 }
 
-html {
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
   font-size: 16px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 #app {
   font-family: var(--font-serif);
+  height: 100%;
+  min-width: 320px;
+  min-height: 500px;
+  overflow: hidden;
+  width: 100%;
 }
 </style>
