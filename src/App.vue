@@ -19,9 +19,6 @@ export default {
   --font-serif: 'Josefin Slab', serif;
 
   --theme-green-dark: #47584D;
-  --theme-green: #42A482;
-  --theme-red: #BE3400;
-  --theme-yellow: #CDB739;
   --theme-white: #FAF5D3;
   --theme-white-transparent: rgba(250, 245, 211, 0.4);
 }
