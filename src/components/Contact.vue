@@ -1,20 +1,30 @@
 <template>
-  <ul class="contact">
-    <li 
-      v-for="link in links"
-      v-bind:key="link.id"
-    >
-      <a class="link" v-bind:href="link.address" target="_blank">
-        <div class="icon">
-          <GithubIcon v-if="link.id === 'github'" />
-          <LinkedInIcon v-if="link.id === 'linkedin'" />
-          <ResumeIcon v-if="link.id === 'resume'" />
-          <TwitterIcon v-if="link.id === 'twitter'" />
-        </div>
-        <span class="name">{{ link.name }}</span>
-      </a>
-    </li>
-  </ul>
+  <div class="contact">
+    <ul class="links">
+      <li 
+        v-for="link in links"
+        v-bind:key="link.id"
+      >
+        <a 
+          class="link" 
+          target="_blank"
+          v-bind:href="link.address" 
+          @mouseover="focus"
+          @mouseleave="unfocus"
+          @focus="focus"
+          @blur="unfocus"
+        >
+          <div class="icon">
+            <GithubIcon v-if="link.id === 'github'" />
+            <LinkedInIcon v-if="link.id === 'linkedin'" />
+            <ResumeIcon v-if="link.id === 'resume'" />
+            <TwitterIcon v-if="link.id === 'twitter'" />
+          </div>
+          <span class="name">{{ link.name }}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -33,6 +43,7 @@ export default {
   },
   data () {
     return {
+      isActive: false,
       links: [
         {
           address: 'https://github.com/elhorowitz/',
@@ -56,16 +67,32 @@ export default {
         },
       ]
     }
-  } 
+  },
+  methods: {
+    focus() {
+      this.updateActive(true);
+    },
+    unfocus() {
+      this.updateActive(false);
+    }
+  },
+  props: {
+    updateActive: Function
+  }
 }
 </script>
 
 <style scoped>
 .contact {
+  align-items: center;
+  display: flex;
+}
+.links {
   display: flex;
   justify-content: space-between;
   list-style: none;
-  margin: 2rem 0;
+  margin: 2rem;
+  margin-left: -1rem;
   padding: 0;
 }
 .link {
@@ -73,7 +100,7 @@ export default {
   color: var(--theme-white);
   display: flex;
   flex-direction: column;
-  margin: 0;
+  margin: 0 1rem;
   text-decoration: none;
 }
 .icon {
@@ -105,10 +132,14 @@ export default {
   margin-top: 1rem;
   transition: all ease-in 0.2s;
 }
-
+.link:focus {
+  outline: none;
+}
+.link:focus .icon,
 .link:hover .icon {
   border-color: var(--theme-white-transparent);
 }
+.link:focus .icon::after,
 .link:hover .icon::after {
   border: 0.5rem solid var(--theme-white);
   bottom: -1rem;
@@ -116,6 +147,7 @@ export default {
   right: -1rem;
   top: -1rem;
 }
+.link:focus .name,
 .link:hover .name {
   font-weight: 500;
 }

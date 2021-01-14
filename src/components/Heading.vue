@@ -16,6 +16,7 @@ export default {
   background: var(--theme-green-dark);
   color: var(--theme-white);
   font-family: var(--font-sans);
+  margin-bottom: 1rem;
 }
 .title {
   font-size: 2.625rem;
