@@ -83,9 +83,10 @@ export default {
   display: flex;
   justify-content: space-between;
   list-style: none;
-  margin: 2rem;
+  margin: 2rem 0;
   margin-left: -1rem;
   padding: 0;
+  width: 100%;
 }
 .link {
   align-items: center;

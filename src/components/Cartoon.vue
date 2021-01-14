@@ -23,6 +23,7 @@ export default {
 .cartoon {
   color: var(--theme-white);
   height: 438px;
+  margin-left: 4rem;
   width: 196px; 
 }
 #leftarm,
